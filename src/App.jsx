@@ -23,6 +23,8 @@ import TypewriterText from './components/TypewriterText.jsx'
 import ModularLogo from './components/ModularLogo.jsx'
 import ProductGallery from './components/ProductGallery.jsx'
 import InterfaceShowcase from './components/InterfaceShowcase.jsx'
+import VideoShowcase from './components/VideoShowcase.jsx'
+import ToolAccessSection from './components/ToolAccessSection.jsx'
 import './App.css'
 
 function App() {
@@ -77,6 +79,10 @@ function App() {
     { name: 'linkedin_banner', src: '/src/assets/images/products/linkedin_banner.webp', alt: 'Banner LinkedIn' },
     { name: 'mug_design_creative_purple', src: '/src/assets/images/products/mug_design_creative_purple.png', alt: 'Caneca Criativa Roxa' }
   ]
+
+  // URL da ferramenta Construktor
+  const toolUrl = 'https://oliverlleo.github.io/Construktor/'
+  const videoSrc = '/src/assets/videos/Designsemnome.mp4'
 
   return (
     <div className="min-h-screen bg-white parallax-container">
@@ -279,97 +285,33 @@ function App() {
         </motion.div>
       </section>
 
-      {/* Sistema Section */}
+      {/* Sistema Section - Agora com Vídeo */}
       <section id="sistema" className="py-20 bg-gray-50 relative">
         <div className="container mx-auto px-6">
           <AnimatedSection>
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-6 construktor-text-gradient">
-                Liberte o Poder da Construção Modular
+                Veja o Construktor em Ação
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                O Construktor permite que você crie fluxos de trabalho, Sistemas de Gestão da Qualidade (SGQ) 
-                e Procedimentos Operacionais Padrão (POPs) como se estivesse montando blocos.
+                Descubra como é simples e intuitivo construir sistemas com nossa ferramenta. 
+                Assista ao vídeo e depois experimente você mesmo!
               </p>
             </div>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            {[
-              {
-                icon: <Blocks className="w-8 h-8" />,
-                title: "Módulos Personalizáveis",
-                description: "Crie e organize funcionalidades em categorias lógicas.",
-                color: "from-blue-500 to-blue-600"
-              },
-              {
-                icon: <Zap className="w-8 h-8" />,
-                title: "Fluxos Visuais",
-                description: "Desenhe e gerencie processos de forma intuitiva.",
-                color: "from-purple-500 to-purple-600"
-              },
-              {
-                icon: <Shield className="w-8 h-8" />,
-                title: "SGQ e POPs",
-                description: "Padronize operações e garanta a qualidade.",
-                color: "from-green-500 to-green-600"
-              },
-              {
-                icon: <Layers className="w-8 h-8" />,
-                title: "Controle Total",
-                description: "Tenha domínio sobre cada etapa do seu negócio.",
-                color: "from-red-500 to-red-600"
-              }
-            ].map((feature, index) => (
-              <InteractiveCard
-                key={index}
-                icon={feature.icon}
-                title={feature.title}
-                description={feature.description}
-                color={feature.color}
-                delay={index * 0.1}
-              />
-            ))}
-          </div>
-
-          {/* Interface Preview */}
-          <AnimatedSection delay={0.4} direction="scale">
-            <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-6xl mx-auto relative overflow-hidden">
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold mb-4">Interface do Sistema</h3>
-                <p className="text-gray-600">Veja como é simples e intuitivo trabalhar com o Construktor</p>
-              </div>
-              
-              {/* Placeholder para a interface - será substituído pela imagem real */}
-              <motion.div 
-                className="bg-gradient-to-br from-purple-100 to-purple-200 rounded-xl h-96 flex items-center justify-center relative"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="text-center">
-                  <ModularLogo size={80} className="mx-auto mb-4" />
-                  <p className="text-purple-700 font-semibold text-lg">Interface do Construktor</p>
-                  <p className="text-purple-600">Módulos • Entidades • Fluxos de Trabalho</p>
-                </div>
-
-                {/* Efeito de brilho animado */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0"
-                  animate={{ 
-                    opacity: [0, 0.3, 0],
-                    x: ["-100%", "100%"]
-                  }}
-                  transition={{ 
-                    duration: 3, 
-                    repeat: Infinity, 
-                    repeatDelay: 2 
-                  }}
-                />
-              </motion.div>
-            </div>
+          {/* Video Showcase */}
+          <AnimatedSection delay={0.3}>
+            <VideoShowcase 
+              videoSrc={videoSrc}
+              toolUrl={toolUrl}
+            />
           </AnimatedSection>
         </div>
       </section>
+
+      {/* Seção de Acesso à Ferramenta */}
+      <ToolAccessSection toolUrl={toolUrl} />
 
       {/* Benefícios Section */}
       <section id="beneficios" className="py-20">
