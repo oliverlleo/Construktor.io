@@ -1,0 +1,29 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Arquivos de ambiente
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Pasta de dependências
+node_modules
+
+# Arquivos de build do Vite
+# A pasta /dist NÃO está aqui de propósito, para que possa ser enviada para o GitHub
+.DS_Store
+dist-ssr
+*.pem
+
+# Arquivos de cache
+.eslintcache
+.vite-inspect
+.cache
